@@ -13,9 +13,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.dev.mohamed.jokesprovder.JokesProvderClass;
-import com.dev.mohamed.showjokelib.ShowJokeActivity;
 
+import com.dev.mohamed.showjokelib.ShowJokeActivity;
 
 
 public class MainActivity extends AppCompatActivity implements RetrieveJokeClass.OnRetrieveComplet{
@@ -29,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements RetrieveJokeClass
         setContentView(R.layout.activity_main);
 
         progressBar=findViewById(R.id.loading);
+
+
 
     }
 
