@@ -1,19 +1,35 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.dev.mohamed.jokesprovder.JokesProvderClass;
+import com.dev.mohamed.showjokelib.ShowJokeActivity;
 
-public class MainActivity extends AppCompatActivity {
 
+
+public class MainActivity extends AppCompatActivity implements RetrieveJokeClass.OnRetrieveComplet{
+
+
+
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressBar=findViewById(R.id.loading);
+
     }
 
 
@@ -40,8 +56,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+
+       // Toast.makeText(this, theJoke, Toast.LENGTH_SHORT).show();
+
+
+        RetrieveJokeClass.getJoke(this,progressBar);
+
+
+
     }
+
+
+    @Override
+    public void onComplete(String joke) {
+
+        Intent intent=new Intent(MainActivity.this, ShowJokeActivity.class);
+        intent.putExtra("joke",joke);
+        startActivity(intent);
+    }
+
 
 
 }
