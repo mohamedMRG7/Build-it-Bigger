@@ -7,8 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.dev.mohamed.showjokelib.ShowJokeActivity;
+import com.udacity.gradle.builditbigger.connection.CheckConnection;
 
 
 public class MainActivity extends AppCompatActivity implements RetrieveJokeClass.OnRetrieveComplet{
@@ -54,9 +56,10 @@ public class MainActivity extends AppCompatActivity implements RetrieveJokeClass
 
        // Toast.makeText(this, theJoke, Toast.LENGTH_SHORT).show();
 
-
+        if (CheckConnection.isOnline(this))
         RetrieveJokeClass.getJoke(this,progressBar);
 
+        else Toast.makeText(this, R.string.no_conn_message,Toast.LENGTH_LONG).show();
 
 
     }
