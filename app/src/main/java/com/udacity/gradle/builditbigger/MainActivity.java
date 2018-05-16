@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements RetrieveJokeClass
 
 
     ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

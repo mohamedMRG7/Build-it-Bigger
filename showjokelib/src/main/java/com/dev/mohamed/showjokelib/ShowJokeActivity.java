@@ -19,6 +19,7 @@ public class ShowJokeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_joke);
 
+
         String joke=getIntent().getStringExtra("joke");
 
         tvJoke=findViewById(R.id.tv_joke);
